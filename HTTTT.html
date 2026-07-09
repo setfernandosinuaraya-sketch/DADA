@@ -26,12 +26,12 @@
                     <span>Dashboard</span>
                 </a>
                 <a href="#" class="flex items-center space-x-3 text-gray-400 hover:bg-gray-700 hover:text-white p-3 rounded-lg font-medium transition">
-                    <i class="fa-solid fa-list-check w-5"></i>
-                    <span>Tasks</span>
+                    <i class="fa-solid fa-users w-5"></i>
+                    <span>Data Staf</span>
                 </a>
                 <a href="#" class="flex items-center space-x-3 text-gray-400 hover:bg-gray-700 hover:text-white p-3 rounded-lg font-medium transition">
-                    <i class="fa-solid fa-clock-history w-5"></i>
-                    <span>History</span>
+                    <i class="fa-solid fa-user-clock w-5"></i>
+                    <span>Log Izin/Absen</span>
                 </a>
                 <a href="#" class="flex items-center space-x-3 text-gray-400 hover:bg-gray-700 hover:text-white p-3 rounded-lg font-medium transition">
                     <i class="fa-solid fa-gear w-5"></i>
@@ -62,29 +62,95 @@
         <!-- DASHBOARD BODY CONTENT -->
         <section class="p-8 space-y-6">
             <!-- Statistik Ringkas -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-md">
-                    <p class="text-sm text-gray-400 font-medium">Total Project</p>
-                    <p class="text-3xl font-bold mt-2 text-blue-500">1</p>
+                    <p class="text-sm text-gray-400 font-medium">Total Staf</p>
+                    <p class="text-3xl font-bold mt-2 text-blue-500">12</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-md">
+                    <p class="text-sm text-gray-400 font-medium">Hadir</p>
+                    <p class="text-3xl font-bold mt-2 text-emerald-500">10</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-md">
+                    <p class="text-sm text-gray-400 font-medium">Izin / Sakit</p>
+                    <p class="text-3xl font-bold mt-2 text-amber-500">2</p>
                 </div>
                 <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-md">
                     <p class="text-sm text-gray-400 font-medium">Status Server</p>
-                    <p class="text-3xl font-bold mt-2 text-emerald-500 flex items-center gap-2">
+                    <p class="text-3xl font-bold mt-2 text-emerald-400 flex items-center gap-2 text-xl">
                         <span class="h-3 w-3 rounded-full bg-emerald-500 inline-block animate-ping"></span> Live
                     </p>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-md">
-                    <p class="text-sm text-gray-400 font-medium">Platform</p>
-                    <p class="text-3xl font-bold mt-2 text-purple-500">GitHub Pages</p>
-                </div>
             </div>
 
-            <!-- Konten Utama Tracker -->
-            <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-md">
-                <h2 class="text-lg font-semibold mb-4 text-gray-200">Data Aktivitas</h2>
-                <div class="border-4 border-dashed border-gray-700 rounded-xl p-12 text-center text-gray-500">
-                    <i class="fa-solid fa-folder-open text-4xl mb-3 block"></i>
-                    Belum ada data tracker yang diinputkan. Siap untuk dikembangkan!
+            <!-- TABEL DATA MONITORING STAF -->
+            <div class="bg-gray-800 rounded-xl border border-gray-700 shadow-md overflow-hidden">
+                <div class="p-6 border-b border-gray-700 flex justify-between items-center">
+                    <h2 class="text-lg font-semibold text-gray-200">Monitoring Kehadiran & Izin Staf</h2>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition flex items-center gap-2">
+                        <i class="fa-solid fa-user-plus"></i> Tambah Absensi / Izin
+                    </button>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-900/50 text-gray-400 text-xs uppercase tracking-wider border-b border-gray-700">
+                                <th class="p-4 pl-6">Nama Staf</th>
+                                <th class="p-4">Jabatan</th>
+                                <th class="p-4">Status</th>
+                                <th class="p-4">Keterangan / Alasan</th>
+                                <th class="p-4 pr-6 text-center">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-700 text-sm">
+                            <!-- Baris 1: Contoh Staf Hadir -->
+                            <tr class="hover:bg-gray-700/30 transition">
+                                <td class="p-4 pl-6 font-medium text-white flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-xs font-bold">AS</div>
+                                    Ahmad Saputra
+                                </td>
+                                <td class="p-4 text-gray-300">IT Support</td>
+                                <td class="p-4">
+                                    <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Hadir</span>
+                                </td>
+                                <td class="p-4 text-gray-400">-</td>
+                                <td class="p-4 pr-6 text-center">
+                                    <button class="text-gray-400 hover:text-white mx-1"><i class="fa-solid fa-pen-to-square"></i></button>
+                                </td>
+                            </tr>
+                            <!-- Baris 2: Contoh Staf Izin -->
+                            <tr class="hover:bg-gray-700/30 transition bg-amber-500/5">
+                                <td class="p-4 pl-6 font-medium text-white flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center text-xs font-bold">BR</div>
+                                    Budi Ramadhan
+                                </td>
+                                <td class="p-4 text-gray-300">UI/UX Designer</td>
+                                <td class="p-4">
+                                    <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">Izin</span>
+                                </td>
+                                <td class="p-4 text-amber-300 font-medium">Urusan keluarga mendesak</td>
+                                <td class="p-4 pr-6 text-center">
+                                    <button class="text-gray-400 hover:text-white mx-1"><i class="fa-solid fa-pen-to-square"></i></button>
+                                </td>
+                            </tr>
+                            <!-- Baris 3: Contoh Staf Sakit -->
+                            <tr class="hover:bg-gray-700/30 transition bg-red-500/5">
+                                <td class="p-4 pl-6 font-medium text-white flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-xs font-bold">CN</div>
+                                    Citra Lestari
+                                </td>
+                                <td class="p-4 text-gray-300">Data Analyst</td>
+                                <td class="p-4">
+                                    <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-red-500/10 text-red-400 border border-red-500/20">Sakit</span>
+                                </td>
+                                <td class="p-4 text-red-300 font-medium">Demam tinggi (Surat dokter +)</td>
+                                <td class="p-4 pr-6 text-center">
+                                    <button class="text-gray-400 hover:text-white mx-1"><i class="fa-solid fa-pen-to-square"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
