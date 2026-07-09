@@ -4,15 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Tracker</title>
-    <!-- Link Tailwind CSS yang wajib ada agar tampilan tidak hancur -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome untuk ikon menu -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-gray-900 text-white">
+<body class="bg-gray-900 text-gray-100 font-sans flex h-screen overflow-hidden">
 
-    <!-- Masukkan seluruh komponen sisa kode tracker Anda di bawah sini -->
-    <div class="p-8">
-        <h1 class="text-2xl font-bold">Dashboard Tracker Berhasil Online!</h1>
-    </div>
+    <!-- 1. SIDEBAR NAVIGATION -->
+    <aside class="w-64 bg-gray-800 flex flex-col justify-between border-r border-gray-700">
+        <div>
+            <!-- Header Sidebar -->
+            <div class="p-5 border-b border-gray-700 flex items-center space-x-3">
+                <i class="fa-solid fa-chart-line text-blue-500 text-xl"></i>
+                <span class="text-lg font-bold tracking-wider">TRACKER</span>
+            </div>
+            <!-- Menu Navigasi -->
+            <nav class="p-4 space-y-2">
+                <a href="#" class="flex items-center space-x-3 bg-gray-900 text-blue-400 p-3 rounded-lg font-medium transition">
+                    <i class="fa-solid fa-house w-5"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 text-gray-400 hover:bg-gray-700 hover:text-white p-3 rounded-lg font-medium transition">
+                    <i class="fa-solid fa-list-check w-5"></i>
+                    <span>Tasks</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 text-gray-400 hover:bg-gray-700 hover:text-white p-3 rounded-lg font-medium transition">
+                    <i class="fa-solid fa-clock-history w-5"></i>
+                    <span>History</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 text-gray-400 hover:bg-gray-700 hover:text-white p-3 rounded-lg font-medium transition">
+                    <i class="fa-solid fa-gear w-5"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </div>
+        <!-- Footer Sidebar -->
+        <div class="p-4 border-t border-gray-700 text-xs text-gray-500 text-center">
+            v1.0.0
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="flex-1 flex flex-col overflow-y-auto">
+        
+        <!-- TOP BAR -->
+        <header class="bg-gray-800 p-4 border-b border-gray-700 flex justify-between items-center px-8">
+            <h1 class="text-xl font-semibold">Dashboard Overview</h1>
+            
+            <!-- REAL-TIME CLOCK COMPONENT -->
+            <div class="flex items-center space-x-3 bg-gray-900 px-4 py-2 rounded-lg border border-gray-700 shadow-inner">
+                <i class="fa-regular fa-clock text-blue-400 animate-pulse"></i>
+                <span id="realtime-clock" class="font-mono text-sm tracking-widest text-blue-400 font-bold">00:00:00</span>
+            </div>
+        </header>
+
+        <!-- DASHBOARD BODY CONTENT -->
+        <section class="p-8 space-y-6">
+            <!-- Statistik Ringkas -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-md">
+                    <p class="text-sm text-gray-400 font-medium">Total Project</p>
+                    <p class="text-3xl font-bold mt-2 text-blue-500">1</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-md">
+                    <p class="text-sm text-gray-400 font-medium">Status Server</p>
+                    <p class="text-3xl font-bold mt-2 text-emerald-500 flex items-center gap-2">
+                        <span class="h-3 w-3 rounded-full bg-emerald-500 inline-block animate-ping"></span> Live
+                    </p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-md">
+                    <p class="text-sm text-gray-400 font-medium">Platform</p>
+                    <p class="text-3xl font-bold mt-2 text-purple-500">GitHub Pages</p>
+                </div>
+            </div>
+
+            <!-- Konten Utama Tracker -->
+            <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-md">
+                <h2 class="text-lg font-semibold mb-4 text-gray-200">Data Aktivitas</h2>
+                <div class="border-4 border-dashed border-gray-700 rounded-xl p-12 text-center text-gray-500">
+                    <i class="fa-solid fa-folder-open text-4xl mb-3 block"></i>
+                    Belum ada data tracker yang diinputkan. Siap untuk dikembangkan!
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- SCRIPT UNTUK JAM DIGITAL REAL-TIME -->
+    <script>
+        function updateClock() {
+            const clockElement = document.getElementById('realtime-clock');
+            const now = new Date();
+            
+            let hours = now.getHours().toString().padStart(2, '0');
+            let minutes = now.getMinutes().toString().padStart(2, '0');
+            let seconds = now.getSeconds().toString().padStart(2, '0');
+            
+            clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        
+        // Jalankan jam langsung dan perbarui setiap 1 detik
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
 
 </body>
 </html>
